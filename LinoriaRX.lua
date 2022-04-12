@@ -10,7 +10,6 @@ local ScreenGui = Instance.new('ScreenGui');
 (protectgui or syn.protect_gui or (function() end))(ScreenGui);
 
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Global;
-ScreenGui.Name = 'fuckingworkyoutwat'
 ScreenGui.Parent = CoreGui;
 
 local Toggles = {};
@@ -1914,6 +1913,10 @@ function Library:SetWatermark(Text)
     Library:SetWatermarkVisibility(true)
 
     Library.WatermarkText.Text = Text;
+end;
+
+function Library:SetWorkspaceName(Text)
+    ScreenGui.Name = Text;
 end;
 
 function Library:Notify(Text, Time)
