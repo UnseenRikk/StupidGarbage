@@ -1,2 +1,2 @@
-# StupidLibraries
+# StupidGarbage
 big fat fard compilation
