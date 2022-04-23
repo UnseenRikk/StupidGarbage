@@ -33,4 +33,17 @@ task.spawn(function()
     end;
 end);
 
+local function DeleteValue()
+    LocalPlayer.leaderstats.Money:Destroy()
+end;
+
+local function AddValue()
+    local new = Instance.new("IntValue", LocalPlayer.leaderstats)
+    new.Name = "Money"
+    new.Value = 100000
+end;
+
+hack:AddButton('Delete le valuer', DeleteValue);
+hack:AddButton('Add le valuer', AddValue);
+
 Library:Notify('bad hack loaded');
