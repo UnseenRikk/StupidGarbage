@@ -63,7 +63,7 @@ task.spawn(function()
         if Toggles.AutoRefill.Value then
             if BowlPart.Transparency == 1 then
                 HasFood()
-                if Money.Value < 50 and FoodCheck == false then
+                if Money.Value < 50 and FoodCheck == true then
                     return
                 else
                     for i,v in pairs(getconnections(ShopMenu.Food.Purchase.MouseButton1Click)) do
