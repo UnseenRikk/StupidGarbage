@@ -52,14 +52,8 @@ local function HasFood()
     end;
 end;
 
-local totalTime = 0
 task.spawn(function()
-    game:GetService('RunService').RenderStepped:Connect(function(deltaTime)
-        totalTime += deltaTime
-        if (totalTime < 1 / 2) then
-            return
-        end;
-        totalTime = 0
+    while game:GetService('RunService').RenderStepped:Wait() do
         if Toggles.AutoRefill.Value then
             if BowlPart.Transparency == 1 then
                 HasFood()
