@@ -68,7 +68,7 @@ task.spawn(function()
                 end;
             end;
         end;
-    end);
+    end;
 end);
 
 Library:Notify('bad hack loaded');
