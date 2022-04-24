@@ -53,11 +53,18 @@ local function HasFood()
     end;
 end;
 
+local totalTime = 0
 task.spawn(function()
-    while game:GetService('RunService').RenderStepped:Wait() do
+    game:GetService('RunService').RenderStepped:Connect(function(deltaTime)
+        totalTime += deltaTime
+        if (totalTime < 1 / 2) then
+            return
+        end;
+        totalTime = 0
         if Toggles.AutoRefill.Value then
             if BowlPart.Transparency == 1 then
                 if Money.Value < 50 and HasFood() == false then
+                    return
                 else
                     for i,v in pairs(getconnections(ShopMenu.Food.Purchase.MouseButton1Click)) do
                         v:Fire()
@@ -66,7 +73,7 @@ task.spawn(function()
                 end;
             end;
         end;
-    end;
+    end);
 end);
 
 Library:Notify('bad hack loaded');
