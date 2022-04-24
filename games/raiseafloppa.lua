@@ -13,6 +13,7 @@ local hacktab = MainWindow:AddTab('hack');
 local hacktabbox = hacktab:AddLeftTabbox();
 
 local hack = hacktabbox:AddTab('hack');
+hack:AddLabel('why would u hack in this game xd');
 hack:AddToggle('AutoClicker', { Text = 'Auto clicker' });
 hack:AddToggle('AutoPickupMoney', { Text = 'Auto pickup money' });
 hack:AddToggle('AutoRefill', { Text = 'Auto refill bowl' });
