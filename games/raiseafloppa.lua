@@ -39,16 +39,15 @@ task.spawn(function()
     end;
 end);
 
+local FoodCheck = false
 local function HasFood()
     for i,v in pairs(game.Workspace:GetChildren()) do
         if v.Name == PlayerName then
             for i,v2 in pairs(v:GetChildren()) do
                 if v2.Name == "Floppa Food" then
-                    return true
+                    FoodCheck = true
                 end;
             end;
-        else
-            return false
         end;
     end;
 end;
@@ -63,13 +62,15 @@ task.spawn(function()
         totalTime = 0
         if Toggles.AutoRefill.Value then
             if BowlPart.Transparency == 1 then
-                if Money.Value < 50 and HasFood() == false then
+                HasFood()
+                if Money.Value < 50 and FoodCheck == false then
                     return
                 else
                     for i,v in pairs(getconnections(ShopMenu.Food.Purchase.MouseButton1Click)) do
                         v:Fire()
                     end;
                     fireproximityprompt(BowlPart.ProximityPrompt, 10000)
+                    FoodCheck = false
                 end;
             end;
         end;
