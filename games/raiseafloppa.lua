@@ -69,7 +69,7 @@ task.spawn(function()
                     for i,v in pairs(getconnections(ShopMenu.Food.Purchase.MouseButton1Click)) do
                         v:Fire()
                     end;
-                    fireproximityprompt(BowlPart.ProximityPrompt, 0)
+                    fireproximityprompt(BowlPart.ProximityPrompt, 10000)
                 end;
             end;
         end;
