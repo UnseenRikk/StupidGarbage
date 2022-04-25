@@ -16,7 +16,7 @@ local hack = hacktabbox:AddTab('hack');
 hack:AddLabel('why would u hack in this game xd');
 hack:AddToggle('AutoClicker', { Text = 'Auto clicker' });
 hack:AddToggle('AutoPickupMoney', { Text = 'Auto pickup money' });
-hack:AddToggle('AutoRefill', { Text = 'Auto refill bowl' });
+hack:AddToggle('AutoRefill', { Text = 'Auto refill bowl (dont use)' });
 
 task.spawn(function()
     while game:GetService('RunService').RenderStepped:Wait() do
@@ -39,16 +39,29 @@ task.spawn(function()
     end;
 end);
 
-local FoodCheck = false
 local function HasFood()
     for i,v in pairs(game.Workspace:GetChildren()) do
         if v.Name == PlayerName then
-            for i,v2 in pairs(v:GetChildren()) do
-                if v2.Name == "Floppa Food" then
-                    FoodCheck = true
-                end;
+            if table.find(v:GetChildren(), "Floppa Food") then
+                return true
+            else
+                return false
             end;
         end;
+    end;
+end;
+
+local function Refill()
+    if Money.Value < 50 then
+    else
+        if HasFood() == false then
+            for i,v in pairs(getconnections(ShopMenu.Food.Purchase.MouseButton1Click)) do
+                v:Fire()
+            end;
+        end;
+        Wait(0.25)
+        LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0,0,0)
+        fireproximityprompt(BowlPart.ProximityPrompt) -- this piece of shit
     end;
 end;
 
@@ -56,16 +69,8 @@ task.spawn(function()
     while game:GetService('RunService').RenderStepped:Wait() do
         if Toggles.AutoRefill.Value then
             if BowlPart.Transparency == 1 then
-                HasFood()
-                if Money.Value < 50 and FoodCheck == true then
-                    return
-                else
-                    for i,v in pairs(getconnections(ShopMenu.Food.Purchase.MouseButton1Click)) do
-                        v:Fire()
-                    end;
-                    fireproximityprompt(BowlPart.ProximityPrompt, 10000)
-                    FoodCheck = false
-                end;
+                Refill()
+                Wait(1)
             end;
         end;
     end;
