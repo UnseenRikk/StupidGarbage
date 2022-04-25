@@ -58,8 +58,8 @@ local function Refill()
             for i,v in pairs(getconnections(ShopMenu.Food.Purchase.MouseButton1Click)) do
                 v:Fire()
             end;
+            Wait(0.25)
         end;
-        Wait(0.25)
         LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0,0,0)
         fireproximityprompt(BowlPart.ProximityPrompt) -- this piece of shit
     end;
