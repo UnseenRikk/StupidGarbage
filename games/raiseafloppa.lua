@@ -60,8 +60,9 @@ local function Refill()
             end;
             Wait(0.25)
         end;
-        LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0,0,0)
-        fireproximityprompt(BowlPart.ProximityPrompt) -- this piece of shit
+        LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-38, 7, -17)
+        Wait(0.25)
+        fireproximityprompt(BowlPart.ProximityPrompt)
     end;
 end;
 
