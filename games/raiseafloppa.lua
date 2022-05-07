@@ -1,10 +1,10 @@
 Library = loadstring(game:HttpGet('https://raw.githubusercontent.com/UnseenRikk/StupidGarbage/main/LinoriaRX.lua'))();
 
-local Players = game:GetService("Players");
+local Players = game.Players
 local LocalPlayer = Players.LocalPlayer;
 local ShopMenu = LocalPlayer.PlayerGui.Shop.Frame.ScrollingFrame
 local BowlPart = game.Workspace.Bowl.Part
-local Money = LocalPlayer.leaderstats.Money
+local Money = LocalPlayer.leaderstats2.Money
 local PlayerName = LocalPlayer.Name
 
 local MainWindow = Library:CreateWindow('Raise A Floppa');

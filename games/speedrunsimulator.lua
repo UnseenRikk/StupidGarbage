@@ -34,6 +34,7 @@ task.spawn(function()
         if Toggles.AutoRebirth.Value then
             if u1(LocalPlayer.leaderstats.Rebirths.Value + 1) < LocalPlayer.leaderstats.Speed.Value then
 				Remotes.Rebirth:FireServer();
+                wait(1)
 			end;
         end;
     end;
