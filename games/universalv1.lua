@@ -92,6 +92,9 @@ do
         methods.element("Slider", "minimum ray ignore", {default = {min = 0, max = 100, default = 3}})
         methods.element("Combo", "must include", {options = {"camera", "character"}, default = {Combo = {"camera", "character"}}})
 
+        local rikkwashere = _menu.new_sector("rikk was here", "Right")
+        rikkwashere.element("Toggle", "meow x3")
+
         local playercheck = _menu.new_sector("player check")
         playercheck.element("Toggle", "free for all")
         playercheck.element("Toggle", "forcefield check")
